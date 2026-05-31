@@ -192,6 +192,31 @@ section{position:relative;z-index:2}
 .clink:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,212,255,.04)}
 .clink-tag{font-family:var(--mono);font-size:10px;color:var(--accent);width:90px;letter-spacing:.1em}
 
+  .contact-social{
+display:flex;
+gap:24px;
+margin-top:30px;
+flex-wrap:wrap;
+}
+
+.contact-social a{
+width:65px;
+height:65px;
+display:flex;
+align-items:center;
+justify-content:center;
+border:1px solid var(--border);
+text-decoration:none;
+color:var(--accent);
+font-size:28px;
+transition:.3s;
+}
+
+.contact-social a:hover{
+border-color:var(--accent);
+background:rgba(0,212,255,.08);
+transform:translateY(-3px);
+}
 /* footer */
 footer{border-top:1px solid var(--border);padding:22px 52px;display:flex;justify-content:space-between;align-items:center;background:var(--bg);z-index:2;position:relative}
 .foot-copy{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em}
@@ -210,6 +235,9 @@ footer{border-top:1px solid var(--border);padding:22px 52px;display:flex;justify
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.vis{opacity:1;transform:translateY(0)}
 </style>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -256,10 +284,19 @@ footer{border-top:1px solid var(--border);padding:22px 52px;display:flex;justify
       <span class="badge badge-c">EgSA Intern</span>
       <span class="badge badge-c">EgyptAir Intern</span>
     </div>
-    <div class="hero-btns">
-      <a href="#projects" class="btn-p">View Projects</a>
-      <a href="#contact" class="btn-s">Get in Touch</a>
-    </div>
+   <div class="hero-btns">
+    <a href="#projects" class="btn-p">View Projects</a>
+
+    <a href="https://drive.google.com/file/d/1rQyzKf6-13w21SBDFI-muLvxDjFp2aSE/view?usp=drive_link"
+       target="_blank"
+       class="btn-s">Download CV</a>
+
+    <a href="https://drive.google.com/drive/folders/12XKJy3Krl9ZKEhPfmWmJGjd1H0OgKOG-"
+       target="_blank"
+       class="btn-s">Certificates</a>
+
+    <a href="#contact" class="btn-s">Get in Touch</a>
+</div>
   </div>
 
   <!-- Profile photo + orbital rings -->
@@ -765,13 +802,27 @@ footer{border-top:1px solid var(--border);padding:22px 52px;display:flex;justify
         <p class="contact-sub reveal">Open to propulsion, structures, and systems engineering roles and research opportunities. Based in Giza, Egypt — available for relocation.</p>
         <a href="mailto:rehandabdelhady@gmail.com" class="btn-p reveal" style="display:inline-block">Send an Email</a>
       </div>
-      <div class="contact-links reveal">
-        <a href="mailto:rehandabdelhady@gmail.com" class="clink"><span class="clink-tag">EMAIL</span>rehandabdelhady@gmail.com</a>
-        <a href="http://www.linkedin.com/in/rehand-abdelhady" target="_blank" class="clink"><span class="clink-tag">LINKEDIN</span>linkedin.com/in/rehand-abdelhady</a>
-        <a href="https://www.instagram.com/rehand_abdelhady/" target="_blank" class="clink"><span class="clink-tag">INSTAGRAM</span>@rehand_abdelhady</a>
-        <a href="https://www.facebook.com/rehand.yassin/" target="_blank" class="clink"><span class="clink-tag">FACEBOOK</span>facebook.com/rehand.yassin</a>
-        <a href="https://drive.google.com/file/d/1rQyzKf6-13w21SBDFI-muLvxDjFp2aSE/view?usp=drive_link" target="_blank" class="clink"><span class="clink-tag">RESUME</span>Download CV (PDF)</a>
-        <a href="https://drive.google.com/drive/folders/12XKJy3Krl9ZKEhPfmWmJGjd1H0OgKOG-" target="_blank" class="clink"><span class="clink-tag">CERTS</span>View Certificates</a>
+     <div class="contact-social reveal">
+<a href="mailto:rehandabdelhady@gmail.com" target="_blank">
+<i class="fas fa-envelope"></i>
+</a>
+
+<a href="https://www.linkedin.com/in/rehand-abdelhady"
+target="_blank">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://www.instagram.com/rehand_abdelhady/"
+target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.facebook.com/rehand.yassin/"
+target="_blank">
+<i class="fab fa-facebook"></i>
+</a>
+
+</div>
       </div>
     </div>
   </div>
