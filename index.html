@@ -230,6 +230,36 @@ border-color:var(--accent);
 background:rgba(0,212,255,.08);
 transform:translateY(-3px);
 }
+  .proj-slider{
+position:relative;
+width:100%;
+}
+
+.slider-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+width:40px;
+height:40px;
+border:none;
+background:rgba(0,0,0,.6);
+color:white;
+font-size:20px;
+cursor:pointer;
+z-index:10;
+}
+
+.slider-btn.prev{
+left:10px;
+}
+
+.slider-btn.next{
+right:10px;
+}
+
+.slider-btn:hover{
+background:rgba(0,212,255,.7);
+}
 /* footer */
 footer{border-top:1px solid var(--border);padding:22px 52px;display:flex;justify-content:space-between;align-items:center;background:var(--bg);z-index:2;position:relative}
 .foot-copy{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em}
@@ -599,7 +629,24 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
       <!-- Wheel & Brakes -->
       <div class="proj-card" data-cat="mech">
-        <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUAwfLYSa876b0kNFojjVxjv6bovSIwOn9DYebagkVxTvAiE6fmM4yy02MYFNkNwGBgnxl2juL-5jN_c21BmTwPYkoRyAQJbt0eRb1L_C62JmZyf4NRnyYF9iAbccSvfyUGPv0=w800" class="proj-img" alt="Wheel Assembly" onerror="this.style.display='none'">
+        <div class="proj-slider">
+
+<img id="veloxSlider"
+     src="assets/Asseemb.png"
+     class="proj-img dc-img"
+     alt="Velox Assembly">
+
+<button class="slider-btn prev"
+        onclick="changeVelox(-1)">
+❮
+</button>
+
+<button class="slider-btn next"
+        onclick="changeVelox(1)">
+❯
+</button>
+
+</div>
         <div class="proj-body">
           <div class="proj-cat cat-mech">Racing · Velox Team</div>
           <div class="proj-title">Brakes, Wheels &amp; Linkage System</div>
@@ -971,6 +1018,35 @@ document.querySelectorAll('.skills-grid').forEach(g=>skObs.observe(g));
 
 // Project filters
 document.querySelectorAll('.pf-btn').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');const f=this.dataset.filter;document.querySelectorAll('.proj-card').forEach(c=>{if(f==='all'||c.dataset.cat===f){c.classList.remove('hidden')}else{c.classList.add('hidden')}})})});
+</script>
+
+<script>
+
+const veloxImages = [
+"assets/Asseemb.png",
+"assets/Wheel.png",
+"assets/Brakes.png"
+];
+
+let veloxIndex = 0;
+
+function changeVelox(direction){
+
+veloxIndex += direction;
+
+if(veloxIndex < 0){
+veloxIndex = veloxImages.length - 1;
+}
+
+if(veloxIndex >= veloxImages.length){
+veloxIndex = 0;
+}
+
+document.getElementById("veloxSlider").src =
+veloxImages[veloxIndex];
+
+}
+
 </script>
 </body>
 </html>
