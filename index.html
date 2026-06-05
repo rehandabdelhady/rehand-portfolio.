@@ -507,42 +507,65 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         </div>
       </div>
 
-      <!-- NACA CFD -->
-      <div class="proj-card" data-cat="aero">
-        <div class="proj-img-placeholder" style="background:linear-gradient(135deg,#030d1a,#0a1f0a)">
-          <svg width="100%" height="100%" viewBox="0 0 360 200" style="position:absolute;inset:0">
-            <defs><linearGradient id="airG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#06080f"/><stop offset="40%" stop-color="#003a5e"/><stop offset="70%" stop-color="#00d4ff" stop-opacity=".5"/><stop offset="100%" stop-color="#06080f"/></linearGradient></defs>
-            <rect width="360" height="200" fill="#06080f"/>
-            <!-- streamlines -->
-            <g stroke="rgba(0,212,255,.25)" stroke-width=".8" fill="none">
-              <path d="M0,30 Q80,30 140,60 Q200,90 360,30"/>
-              <path d="M0,50 Q80,50 140,75 Q200,100 360,50"/>
-              <path d="M0,70 Q80,70 145,90 Q210,110 360,70"/>
-              <path d="M0,90 Q80,90 145,105 Q210,118 360,90"/>
-              <path d="M0,110 Q80,110 145,110 Q210,110 360,110"/>
-              <path d="M0,130 Q80,130 145,115 Q210,105 360,130"/>
-              <path d="M0,150 Q80,150 145,125 Q210,100 360,150"/>
-              <path d="M0,170 Q80,170 145,140 Q210,110 360,170"/>
-            </g>
-            <!-- airfoil -->
-            <path d="M80,100 Q140,72 240,97 Q280,100 280,100 Q240,105 140,115 Q100,115 80,100Z" fill="#111827" stroke="rgba(0,212,255,.7)" stroke-width="1.2"/>
-            <!-- pressure zone -->
-            <ellipse cx="170" cy="85" rx="50" ry="12" fill="rgba(255,107,43,.15)"/>
-            <text x="145" y="83" fill="#ff6b2b" font-family="monospace" font-size="8" opacity=".8">HIGH P</text>
-            <ellipse cx="170" cy="116" rx="40" ry="10" fill="rgba(0,212,255,.1)"/>
-            <text x="150" y="130" fill="#00d4ff" font-family="monospace" font-size="8" opacity=".7">LOW P</text>
-            <text x="10" y="192" fill="#00d4ff" font-family="monospace" font-size="8" opacity=".4">NACA 2412 · CFD PRESSURE CONTOUR · α=8°</text>
-          </svg>
-        </div>
-        <div class="proj-body">
-          <div class="proj-cat cat-aero">Aerodynamics · CFD</div>
-          <div class="proj-title">NACA &amp; Joukowski Airfoil CFD</div>
-          <div class="proj-desc">Simulated incompressible flow over NACA 2412 at 10 angles of attack using body-fitted grid. Implemented LSOR method for Joukowski airfoil. Automated MATLAB post-processing for aerodynamic coefficients. Compared with thin airfoil theory.</div>
-          <div class="proj-result">→ Predicted C<sub>L,max</sub> within 5% of published wind-tunnel data</div>
-          <div class="proj-tools"><span class="tool">ANSYS Fluent</span><span class="tool">MATLAB</span><span class="tool">Potential Flow</span></div>
-          <div class="proj-links"><a href="https://drive.google.com/file/d/1T3t8aArvF0Q5ktErxWRbJe9rF686rHQ2/view" target="_blank" class="plink">View Report ↗</a><a href="https://drive.google.com/file/d/1p1I_dEsnOjFNvoz12jx3NTNWnAUUNUL7/view" target="_blank" class="plink">Joukowski Report ↗</a></div>
-        </div>
-      </div>
+
+     <!-- NACA 23022 Airfoil Project -->
+<div class="proj-card" data-cat="aero">
+
+  <div class="proj-slider">
+
+    <img id="nacaSlider"
+         src="assets/p-a.png"
+         class="proj-img"
+         alt="NACA 23022 Airfoil Project">
+
+    <button class="slider-btn prev"
+            onclick="changeNaca(-1)">
+      ❮
+    </button>
+
+    <button class="slider-btn next"
+            onclick="changeNaca(1)">
+      ❯
+    </button>
+
+  </div>
+
+  <div class="proj-body">
+
+    <div class="proj-cat cat-aero">
+      Aerodynamics · CFD
+    </div>
+
+    <div class="proj-title">
+      NACA 23022 Airfoil Project
+    </div>
+
+    <div class="proj-desc">
+      Performed CFD analysis for the NACA 23022 airfoil to study pressure distribution, velocity field, and aerodynamic behaviour under different flow conditions. The project included mesh generation, simulation setup, and post-processing of flow contours.
+    </div>
+
+    <div class="proj-result">
+      → CFD results used to evaluate airfoil pressure and flow behaviour
+    </div>
+
+    <div class="proj-tools">
+      <span class="tool">ANSYS Fluent</span>
+      <span class="tool">CFD</span>
+      <span class="tool">Meshing</span>
+      <span class="tool">Aerodynamics</span>
+    </div>
+
+    <div class="proj-links">
+      <a href="pdfs/CFD_Project.pdf"
+         target="_blank"
+         class="plink">
+         View Report ↗
+      </a>
+    </div>
+
+  </div>
+
+</div>
 
       <!-- HAWT -->
       <div class="proj-card" data-cat="aero">
@@ -1048,5 +1071,37 @@ veloxImages[veloxIndex];
 }
 
 </script>
+
+
+<script>
+
+const nacaImages = [
+"assets/p-a.png",
+"assets/p-m.png",
+"assets/H-gird-a.png",
+"assets/H-gird-m.png"
+];
+
+let nacaIndex = 0;
+
+function changeNaca(direction){
+
+nacaIndex += direction;
+
+if(nacaIndex < 0){
+nacaIndex = nacaImages.length - 1;
+}
+
+if(nacaIndex >= nacaImages.length){
+nacaIndex = 0;
+}
+
+document.getElementById("nacaSlider").src =
+nacaImages[nacaIndex];
+
+}
+
+</script>
+
 </body>
 </html>
