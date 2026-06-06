@@ -963,35 +963,66 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
   </div>
 
-      <!-- HAWT -->
-      <div class="proj-card" data-cat="aero">
-        <div class="proj-img-placeholder" style="background:linear-gradient(135deg,#030d1a,#001a10)">
-          <svg width="100%" height="200" viewBox="0 0 360 200">
-            <rect width="360" height="200" fill="#06080f"/>
-            <!-- Wind turbine silhouette -->
-            <line x1="180" y1="20" x2="180" y2="180" stroke="rgba(0,212,255,.5)" stroke-width="2"/>
-            <ellipse cx="180" cy="70" rx="6" ry="6" fill="var(--accent)" opacity=".8"/>
-            <!-- Blades -->
-            <path d="M180,70 Q140,20 100,10" stroke="rgba(57,255,20,.6)" stroke-width="2" fill="none"/>
-            <path d="M180,70 Q220,20 260,10" stroke="rgba(57,255,20,.6)" stroke-width="2" fill="none"/>
-            <path d="M180,70 Q155,105 150,140" stroke="rgba(57,255,20,.6)" stroke-width="2" fill="none"/>
-            <!-- wind arrows -->
-            <g stroke="rgba(0,212,255,.3)" stroke-width=".8" marker-end="url(#warr)">
-              <line x1="10" y1="50" x2="70" y2="50"/><line x1="10" y1="80" x2="70" y2="80"/><line x1="10" y1="110" x2="70" y2="110"/>
-            </g>
-            <text x="10" y="190" fill="#39ff14" font-family="monospace" font-size="8" opacity=".5">HAWT BLADE · MULTI-PHYSICS · CFD + FEA + MODAL</text>
-          </svg>
-        </div>
-        <div class="proj-body">
-          <div class="proj-cat cat-aero">Wind Energy · Multi-Physics</div>
-          <div class="proj-title">HAWT Blade Multi-Physics Analysis</div>
-          <div class="proj-desc">Full design and analysis workflow for a horizontal axis wind turbine blade — CAD modelling, CFD aerodynamic performance, structural FEA stress analysis, and modal analysis for dynamic behaviour under realistic operating loads.</div>
-          <div class="proj-result">→ Integrated aero + structural + modal results in unified report</div>
-          <div class="proj-tools"><span class="tool">SolidWorks</span><span class="tool">ANSYS CFD</span><span class="tool">ANSYS FEA</span><span class="tool">Modal Analysis</span></div>
-          <div class="proj-links"><a href="https://drive.google.com/file/d/1AAL5CK98xIftoVzENF2AXdgWl8assigE/view" target="_blank" class="plink">View Report ↗</a></div>
-        </div>
-      </div>
 
+      <!-- Wind Turbine Blade Optimization -->
+<div class="proj-card" data-cat="aero">
+
+  <div class="proj-slider">
+
+    <img id="windSlider"
+         src="assets/wind.png"
+         class="proj-img math-img"
+         alt="Wind Turbine Blade Project">
+
+    <button class="slider-btn prev"
+            onclick="changeWind(-1)">
+      ❮
+    </button>
+
+    <button class="slider-btn next"
+            onclick="changeWind(1)">
+      ❯
+    </button>
+
+  </div>
+
+  <div class="proj-body">
+
+    <div class="proj-cat cat-aero">
+      Wind Energy · MATLAB · QBlade
+    </div>
+
+    <div class="proj-title">
+      Wind Turbine Blade Optimization
+    </div>
+
+    <div class="proj-desc">
+      Designed and analysed a horizontal-axis wind turbine blade using the NACA 23015 airfoil. Used MATLAB for aerodynamic calculations, chord and twist distribution, and off-design performance. Validated the blade design in QBlade using BEM analysis.
+    </div>
+
+    <div class="proj-result">
+      → Optimized blade geometry for aerodynamic performance across operating wind conditions
+    </div>
+
+    <div class="proj-tools">
+      <span class="tool">MATLAB</span>
+      <span class="tool">QBlade</span>
+      <span class="tool">BEM Theory</span>
+      <span class="tool">Rotor Aerodynamics</span>
+    </div>
+
+    <div class="proj-links">
+      <a href="pdfs/Wind Turbine.pdf"
+         target="_blank"
+         class="plink">
+         View Report ↗
+      </a>
+    </div>
+
+  </div>
+
+</div>
+      
       <!--Integer Programming Approaches for Real-Time Traffic Management -->
       <div class="proj-card" data-cat="opt">
         <div class="proj-slider">
@@ -1529,5 +1560,34 @@ mathImages[mathIndex];
 
 </script>
 
+<script>
+
+const windImages = [
+"assets/wind.png",
+"assets/plots.png",
+"assets/plots_m.png"
+];
+
+let windIndex = 0;
+
+function changeWind(direction){
+
+windIndex += direction;
+
+if(windIndex < 0){
+windIndex = windImages.length - 1;
+}
+
+if(windIndex >= windImages.length){
+windIndex = 0;
+}
+
+document.getElementById("windSlider").src =
+windImages[windIndex];
+
+}
+
+</script>
+  
 </body>
 </html>
