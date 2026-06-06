@@ -1111,32 +1111,31 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
       <!-- PID Servo -->
       <div class="proj-card" data-cat="ctrl">
-        <div class="proj-img-placeholder" style="background:linear-gradient(135deg,#060c1a,#0a1200)">
-          <svg width="100%" height="200" viewBox="0 0 360 200">
-            <rect width="360" height="200" fill="#06080f"/>
-            <!-- Block diagram -->
-            <rect x="20" y="80" width="60" height="40" fill="#0d1530" stroke="rgba(0,212,255,.4)" stroke-width="1" rx="2"/>
-            <text x="30" y="104" fill="#00d4ff" font-family="monospace" font-size="9">PID</text>
-            <line x1="80" y1="100" x2="120" y2="100" stroke="rgba(0,212,255,.5)" stroke-width="1"/>
-            <rect x="120" y="80" width="60" height="40" fill="#0d1530" stroke="rgba(0,212,255,.4)" stroke-width="1" rx="2"/>
-            <text x="128" y="104" fill="#00d4ff" font-family="monospace" font-size="8">MOTOR</text>
-            <line x1="180" y1="100" x2="220" y2="100" stroke="rgba(0,212,255,.5)" stroke-width="1"/>
-            <rect x="220" y="80" width="70" height="40" fill="#0d1530" stroke="rgba(57,255,20,.4)" stroke-width="1" rx="2"/>
-            <text x="228" y="104" fill="#39ff14" font-family="monospace" font-size="8">ENCODER</text>
-            <path d="M255,80 Q255,40 50,40 L50,80" fill="none" stroke="rgba(255,107,43,.4)" stroke-width="1" stroke-dasharray="4,3"/>
-            <text x="100" y="36" fill="#ff6b2b" font-family="monospace" font-size="8">FEEDBACK</text>
-            <!-- Step response -->
-            <polyline points="20,170 60,170 60,130 100,128 130,125 160,122 185,121 210,120 240,120 290,120 330,120" stroke="rgba(57,255,20,.7)" stroke-width="1.5" fill="none"/>
-            <text x="10" y="190" fill="#39ff14" font-family="monospace" font-size="8" opacity=".5">CASCADED PID · LINEAR SERVO · STEP RESPONSE</text>
-          </svg>
-        </div>
+       <div class="proj-slider">
+
+  <img id="servoSlider"
+       src="assets/model.png"
+       class="proj-img math-img"
+       alt="Mechatronic Linear Servo Model">
+
+  <button class="slider-btn prev"
+          onclick="changeServo(-1)">
+    ❮
+  </button>
+
+  <button class="slider-btn next"
+          onclick="changeServo(1)">
+    ❯
+  </button>
+
+</div>
         <div class="proj-body">
           <div class="proj-cat cat-ctrl">Control Systems</div>
           <div class="proj-title">Mechatronic Linear Servo with Cascaded PID</div>
           <div class="proj-desc">Hardware build and Simulink model of a linear servo system. DC motor parameter estimation, cascaded PID tuning for position and velocity control. Experimental validation showed significant reduction in settling time with accurate position tracking.</div>
           <div class="proj-result">→ Accurate closed-loop position tracking validated experimentally</div>
           <div class="proj-tools"><span class="tool">MATLAB/Simulink</span><span class="tool">Arduino</span><span class="tool">L298 Driver</span></div>
-          <div class="proj-links"><a href="https://drive.google.com/file/d/1rOZHjYjOjWOaqW1L4s9SQnKoZwgxEx_4/view" target="_blank" class="plink">Test Video ↗</a><a href="https://drive.google.com/file/d/1uooPF7Ofw0UBUenWoySgd_3Ws72qXBhZ/view" target="_blank" class="plink">View Report ↗</a></div>
+          <div class="proj-links"><a href="videos/mechatest.mp4" target="_blank" class="plink">Test Video ↗</a><a href="pdfs/Mechatronic Linear Servo System.pdf" target="_blank" class="plink">View Report ↗</a></div>
         </div>
       </div>
 
@@ -1586,6 +1585,35 @@ windIndex = 0;
 
 document.getElementById("windSlider").src =
 windImages[windIndex];
+
+}
+
+</script>
+
+<script>
+
+const servoImages = [
+"assets/model.png",
+"assets/wiring.png",
+"assets/unit.png"
+];
+
+let servoIndex = 0;
+
+function changeServo(direction){
+
+servoIndex += direction;
+
+if(servoIndex < 0){
+servoIndex = servoImages.length - 1;
+}
+
+if(servoIndex >= servoImages.length){
+servoIndex = 0;
+}
+
+document.getElementById("servoSlider").src =
+servoImages[servoIndex];
 
 }
 
