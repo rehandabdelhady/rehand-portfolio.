@@ -150,6 +150,7 @@ padding:12px;
 .cat-cfd{color:var(--accent3)}
 .cat-ctrl{color:var(--gold)}
 .cat-opt{ color:#00d4ff;}
+.math-img{height:320px;object-fit:contain;background:#111827;padding:8px;filter:brightness(1) saturate(1);}
 .proj-title{font-family:var(--head);font-size:20px;font-weight:700;margin-bottom:10px;line-height:1.2}
 .proj-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:14px;flex:1}
 .proj-result{font-family:var(--mono);font-size:10.5px;color:var(--accent3);padding:8px 12px;border-left:2px solid var(--accent3);background:rgba(57,255,20,.04);margin-bottom:18px;letter-spacing:.02em}
@@ -447,7 +448,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       <button class="pf-btn" data-filter="aero">Aerospace & CFD</button>
       <button class="pf-btn" data-filter="mech">Machine Design</button>
       <button class="pf-btn" data-filter="ctrl">Control & Electronics</button>
-      <button class="fpf-btn" data-filter="opt">OPTIMIZATION & MATLAB</button>
+      <button class="pf-btn" data-filter="opt">OPTIMIZATION & MATLAB</button>
     </div>
     <div class="proj-grid reveal">
 
@@ -603,8 +604,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         <div class="proj-slider">
 
   <img id="mathSlider"
-       src="assets/roadmap.jpeg"
-       class="proj-img"
+       src="assets/roadmab.jpeg"
+       class="proj-img math-img"
        alt="Integer Programming Project Roadmap">
 
   <button class="slider-btn prev"
@@ -620,7 +621,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
       
         <div class="proj-body">
-          <div cclass="proj-cat cat-opt">MATLAB · OPTIMIZATION</div>
+          <div class="proj-cat cat-opt">MATLAB · OPTIMIZATION</div>
           <div class="proj-title">Integer Programming Approaches for Real-Time Traffic Management &amp; Build</div>
           <div class="proj-desc">Developed integer linear programming models for real-time aviation traffic management. Solved shortest path, minimum-cost flow, hub location, and airline network optimization problems using MATLAB and optimization techniques. Applied the methodology to Air Cairo's domestic network for hub selection and resource allocation.</div>
           <div class="proj-result">→ Optimized airline routing, hub selection, and transportation cost using ILP</div>
