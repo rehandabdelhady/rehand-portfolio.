@@ -149,6 +149,7 @@ padding:12px;
 .cat-mech{color:var(--accent2)}
 .cat-cfd{color:var(--accent3)}
 .cat-ctrl{color:var(--gold)}
+.cat-opt{ color:#00d4ff;}
 .proj-title{font-family:var(--head);font-size:20px;font-weight:700;margin-bottom:10px;line-height:1.2}
 .proj-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:14px;flex:1}
 .proj-result{font-family:var(--mono);font-size:10.5px;color:var(--accent3);padding:8px 12px;border-left:2px solid var(--accent3);background:rgba(57,255,20,.04);margin-bottom:18px;letter-spacing:.02em}
@@ -446,6 +447,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       <button class="pf-btn" data-filter="aero">Aerospace & CFD</button>
       <button class="pf-btn" data-filter="mech">Machine Design</button>
       <button class="pf-btn" data-filter="ctrl">Control & Electronics</button>
+      <button class="fpf-btn" data-filter="opt">OPTIMIZATION & MATLAB</button>
     </div>
     <div class="proj-grid reveal">
 
@@ -596,33 +598,34 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         </div>
       </div>
 
-      <!-- Pulse Jet -->
-      <div class="proj-card" data-cat="aero">
-        <div class="proj-img-placeholder" style="background:linear-gradient(135deg,#1a0500,#0d0820)">
-          <svg width="100%" height="200" viewBox="0 0 360 200">
-            <rect width="360" height="200" fill="#06080f"/>
-            <!-- Pulse jet body -->
-            <ellipse cx="140" cy="100" rx="100" ry="28" fill="#111827" stroke="rgba(255,107,43,.5)" stroke-width="1.2"/>
-            <!-- Intake -->
-            <path d="M40,80 Q20,80 10,100 Q20,120 40,120" fill="none" stroke="rgba(255,107,43,.4)" stroke-width="1.2"/>
-            <!-- Exhaust tube -->
-            <rect x="240" y="92" width="100" height="16" fill="#0d0820" stroke="rgba(255,107,43,.4)" stroke-width="1"/>
-            <!-- Exhaust flame -->
-            <ellipse cx="350" cy="100" rx="18" ry="12" fill="#ff6b2b" opacity=".6" style="animation:exhaustFlicker .35s ease-in-out infinite"/>
-            <ellipse cx="360" cy="100" rx="10" ry="6" fill="var(--gold)" opacity=".5" style="animation:exhaustFlicker .35s .1s ease-in-out infinite"/>
-            <!-- Combustion -->
-            <ellipse cx="140" cy="100" rx="50" ry="14" fill="#ff6b2b" opacity=".3"/>
-            <ellipse cx="140" cy="100" rx="20" ry="7" fill="#ffd700" opacity=".4"/>
-            <text x="100" y="97" fill="#ffd700" font-family="monospace" font-size="9" opacity=".8">COMBUSTION</text>
-            <text x="10" y="190" fill="#ff6b2b" font-family="monospace" font-size="8" opacity=".4">VALVELESS PULSE JET ENGINE · WORKSHOP BUILD</text>
-          </svg>
-        </div>
+      <!--Integer Programming Approaches for Real-Time Traffic Management -->
+      <div class="proj-card" data-cat="opt">
+        <div class="proj-slider">
+
+  <img id="mathSlider"
+       src="assets/roadmap.jpeg"
+       class="proj-img"
+       alt="Integer Programming Project Roadmap">
+
+  <button class="slider-btn prev"
+          onclick="changeMath(-1)">
+    ❮
+  </button>
+
+  <button class="slider-btn next"
+          onclick="changeMath(1)">
+    ❯
+  </button>
+
+</div>
+      
         <div class="proj-body">
-          <div class="proj-cat cat-aero">Propulsion · Manufacturing</div>
-          <div class="proj-title">Pulse Jet Engine — Design &amp; Build</div>
-          <div class="proj-desc">Co-designed and manufactured a valveless pulse jet engine in a workshop environment. Conducted literature review, supported component inspection, troubleshooting, and testing. Modelled the thermodynamic cycle in MATLAB and validated against bench-test measurements.</div>
-          <div class="proj-result">→ Achieved stable combustion at target thrust in workshop tests</div>
-          <div class="proj-tools"><span class="tool">MATLAB</span><span class="tool">SolidWorks</span><span class="tool">Workshop Mfg.</span></div>
+          <div cclass="proj-cat cat-opt">MATLAB · OPTIMIZATION</div>
+          <div class="proj-title">Integer Programming Approaches for Real-Time Traffic Management &amp; Build</div>
+          <div class="proj-desc">Developed integer linear programming models for real-time aviation traffic management. Solved shortest path, minimum-cost flow, hub location, and airline network optimization problems using MATLAB and optimization techniques. Applied the methodology to Air Cairo's domestic network for hub selection and resource allocation.</div>
+          <div class="proj-result">→ Optimized airline routing, hub selection, and transportation cost using ILP</div>
+          <div class="proj-tools"><span class="tool">MATLAB</span><span class="tool">Integer Programming</span><span class="tool">Optimization</span><span class="tool">Airline Network Design</span></div>
+          <div class="proj-links"><a href="pdfs/MATH404_Project.pdf"target="_blank"class="plink"> View Report ↗</a></div>
         </div>
       </div>
 
@@ -1097,6 +1100,36 @@ nacaIndex = 0;
 
 document.getElementById("nacaSlider").src =
 nacaImages[nacaIndex];
+
+}
+
+</script>
+
+<script>
+
+const mathImages = [
+"assets/roadmap.jpeg",
+"assets/table.jpeg",
+"assets/static1.jpeg",
+"assets/sattic2.jpeg"
+];
+
+let mathIndex = 0;
+
+function changeMath(direction){
+
+mathIndex += direction;
+
+if(mathIndex < 0){
+mathIndex = mathImages.length - 1;
+}
+
+if(mathIndex >= mathImages.length){
+mathIndex = 0;
+}
+
+document.getElementById("mathSlider").src =
+mathImages[mathIndex];
 
 }
 
