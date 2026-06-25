@@ -707,7 +707,18 @@ font-size:22px;
 }
 
 }
+.contact-right{
+    display:flex;
+    flex-direction:column;
+}
 
+.contact-social{
+    margin-bottom:35px;
+}
+
+.contact-form{
+    margin-top:0;
+}
 /* ---------- Contact Form ---------- */
 
 .contact-form{
@@ -1523,9 +1534,24 @@ Designed and built a full lab-scale combustion system — blower, preheater, com
         <p class="contact-sub reveal">
           Open to propulsion, structures, and systems engineering roles and research opportunities. Based in Giza, Egypt — available for relocation.
         </p>
-        <a href="mailto:rehandabdelhady@gmail.com" class="btn-p reveal" style="display:inline-block">
-          Send an Email
+       <div class="contact-info-box reveal">
+
+    <div class="contact-info-icon">
+        <i class="fas fa-envelope"></i>
+    </div>
+
+    <div class="contact-info-content">
+        <div class="contact-info-label">
+            DIRECT CONTACT
+        </div>
+
+        <a href="mailto:rehandabdelhady@gmail.com"
+           class="contact-info-email">
+            rehandabdelhady@gmail.com
         </a>
+    </div>
+
+</div>
       </div>
 
       <div class="contact-right">
@@ -1549,8 +1575,6 @@ Designed and built a full lab-scale combustion system — blower, preheater, com
         </div>
 
         
-
-      </div>
 <form id="contactForm"
       class="contact-form reveal"
       action="https://formspree.io/f/mvzjkbbn"
@@ -1578,7 +1602,10 @@ Designed and built a full lab-scale combustion system — blower, preheater, com
           </button>
   <p id="formStatus" class="form-status"></p>
 
-        </form>
+        <</form>
+
+      </div>
+
     </div>
   </div>
 </section>
